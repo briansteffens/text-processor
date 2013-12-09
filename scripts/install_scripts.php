@@ -28,5 +28,6 @@ insert_script("Trim", "Trim", "Trim whitespace from each line.");
 insert_script("Remove", "Remove", "Remove string from ends of line.");
 insert_script("Remove Empty Lines", "RemoveEmptyLines", "Remove empty lines.");
 insert_script("Append", "Append", "Append text to each line.");
+insert_script("Standardize JSON", "StandardizeJSON", "Attempts to standardize JSON data.");
 
 ?>
