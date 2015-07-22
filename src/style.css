@@ -1,6 +1,7 @@
 body {
 	padding: 0px;
 	margin: 5px;
+	font-family: sans-serif;
 }
 
 #header {
@@ -9,7 +10,7 @@ body {
 	top: 0px;
 	right: 0px;
 	height: 33px;
-	background-color: #4a5aff;
+	background-color: #6600A6;
 	color: #ffffff;
 	vertical-align: middle;
 	border-bottom: solid 2px #000000;
@@ -48,12 +49,12 @@ body {
 
 div.processor {
 	cursor: default;
-	border-bottom: solid 2px #dfefff;
+	border-bottom: solid 2px #F0E1FA;
 }
 
 div.processor:active, 
 div.processor:hover {
-	background-color: #dfefff;
+	background-color: #F0E1FA;
 }
 
 div.processor span.title {
@@ -70,7 +71,7 @@ div.processor span.description {
 div.processorSelected, 
 div.processorSelected:hover, 
 div.processorSelected:active {
-	background-color: #bfcfff;
+	background-color: #D6A7F2;
 }
 
 #fieldcontainer {
