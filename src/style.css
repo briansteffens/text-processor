@@ -1,110 +1,110 @@
 body {
-	padding: 0px;
-	margin: 5px;
-	font-family: sans-serif;
+    padding: 0px;
+    margin: 5px;
+    font-family: sans-serif;
 }
 
 #header {
-	position: fixed;
-	left: 0px;
-	top: 0px;
-	right: 0px;
-	height: 33px;
-	background-color: #6600A6;
-	color: #ffffff;
-	vertical-align: middle;
-	border-bottom: solid 2px #000000;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    height: 33px;
+    background-color: #6600A6;
+    color: #ffffff;
+    vertical-align: middle;
+    border-bottom: solid 2px #000000;
 }
 
 #header span.title {
-	padding-left: 8px;
-	font-size: 1.5em;
+    padding-left: 8px;
+    font-size: 1.5em;
 }
 
 #header a,
 #header a:hover,
 #header a:visited,
 #header a.active {
-	position: fixed;
-	top: 4px;
-	right: 6px;
-	color: #ffffff;
-	font-size: 1.2em;
+    position: fixed;
+    top: 4px;
+    right: 6px;
+    color: #ffffff;
+    font-size: 1.2em;
 }
 
 #options {
-	position: fixed;
-	left: 8px;
-	top: 47px;
-	bottom: 8px;
-	width: 300px;
+    position: fixed;
+    left: 8px;
+    top: 47px;
+    bottom: 8px;
+    width: 300px;
 }
 
 #processors {
-	display: block;
-	overflow-y: scroll;
-	height: 200px;
-	border: solid 2px #aaaaaa;
+    display: block;
+    overflow-y: scroll;
+    height: 200px;
+    border: solid 2px #aaaaaa;
 }
 
 div.processor {
-	cursor: default;
-	border-bottom: solid 2px #F0E1FA;
+    cursor: default;
+    border-bottom: solid 2px #F0E1FA;
 }
 
-div.processor:active, 
+div.processor:active,
 div.processor:hover {
-	background-color: #F0E1FA;
+    background-color: #F0E1FA;
 }
 
 div.processor span.title {
-	display: block;
-	font-weight: bold;
+    display: block;
+    font-weight: bold;
 }
 
 div.processor span.description {
-	display: block;
-	font-style: italic;
-	font-size: .9em;
+    display: block;
+    font-style: italic;
+    font-size: .9em;
 }
 
-div.processorSelected, 
-div.processorSelected:hover, 
+div.processorSelected,
+div.processorSelected:hover,
 div.processorSelected:active {
-	background-color: #D6A7F2;
+    background-color: #D6A7F2;
 }
 
 #fieldcontainer {
-	padding: 8px;
-	position: fixed;
-	top: 262px;
-	bottom: 8px;
-	width: 280px;
-	overflow-y: scroll;
-	border: solid 2px #aaaaaa;
+    padding: 8px;
+    position: fixed;
+    top: 262px;
+    bottom: 8px;
+    width: 280px;
+    overflow-y: scroll;
+    border: solid 2px #aaaaaa;
 }
 
 #fields {
 }
 
 #fields select {
-	width: 268px;
+    width: 268px;
 }
 
 #fields input {
-	width: 262px;
+    width: 262px;
 }
 
 #textcontainer {
-	position: fixed;
-	top: 45px;
-	left: 315px;
-	right: 8px;
-	bottom: 8px;
+    position: fixed;
+    top: 45px;
+    left: 315px;
+    right: 8px;
+    bottom: 8px;
 }
 
 #text {
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
      box-sizing: border-box;        /* Opera/IE 8+ */
      width: 100%;
