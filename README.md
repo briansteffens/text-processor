@@ -35,7 +35,7 @@ Bring up the environment:
 vagrant up
 ```
 
-Now visit http://localhost:8383/ in a browser.
+Now visit [http://localhost:8383/](http://localhost:8383) in a browser.
 
 
 Installation
