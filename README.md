@@ -5,6 +5,39 @@ Web-based tools for processing text. Still pretty much in prototype form.
 A live installation can be accessed at https://coldplace.net/text-processor/.
 
 
+# Download
+
+Make sure you have git (Debian/Ubuntu example below):
+
+```bash
+sudo apt-get install git
+```
+
+Clone the repository:
+
+```bash
+git clone https://github.com/briansteffens/text-processor
+cd text-processor
+```
+
+
+# Development environment
+
+Install Vagrant:
+
+```bash
+sudo apt-get install vagrant
+```
+
+Bring up the environment:
+
+```bash
+vagrant up
+```
+
+Now visit http://localhost:8383/ in a browser.
+
+
 Installation
 ============
 There's no formal installation process yet, so your mileage may vary. Below is
