@@ -50,6 +50,9 @@ function render_fields(fields, element) {
         let el_text = document.createElement('input');
         el_text.setAttribute('id', field_id);
         el_text.setAttribute('type', 'text');
+        if (field.default_value !== undefined) {
+          el_text.setAttribute('value', field.default_value);
+        }
         element.appendChild(el_text);
         break;
 
@@ -57,6 +60,9 @@ function render_fields(fields, element) {
         let el_check = document.createElement('input');
         el_check.setAttribute('id', field_id);
         el_check.setAttribute('type', 'checkbox');
+        if (field.default_value) {
+          el_check.setAttribute('checked', 'checked');
+        }
         element.appendChild(el_check);
         break;
 
@@ -69,9 +75,12 @@ function render_fields(fields, element) {
         options.setAttribute('id', field_id);
 
         for (let j = 0; j < field['enum_options'].length; j++) {
+          let option_val = field['enum_options'][j];
           let option = document.createElement('option');
-          option.appendChild(document.createTextNode(
-                field['enum_options'][j]));
+          option.appendChild(document.createTextNode(option_val));
+          if (field.default_value === option_val) {
+            option.setAttribute('selected', 'selected');
+          }
           options.appendChild(option);
         }
 

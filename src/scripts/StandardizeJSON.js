@@ -5,6 +5,7 @@ register({
     {
       name: 'indent string',
       type: 'string',
+      default_value: '  ',
     },
   ],
   process: function(options, input) {

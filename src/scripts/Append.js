@@ -2,10 +2,15 @@ register({
   name: 'Append',
   description: 'Append text to each line.',
   fields: [
-    {"name": "append to side", "type": "enum",
-     "enum_options": ["left", "right", "both"]
+    {
+      name: "append to side",
+      type: "enum",
+      enum_options: ["left", "right", "both"],
     },
-    {"name": "string to append", "type": "string"},
+    {
+      name: "string to append",
+      type: "string",
+    },
   ],
   process: function(options, input) {
     var side = options['append to side'];
