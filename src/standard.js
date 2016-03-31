@@ -23,8 +23,7 @@ window.onload = function() {
 
     let description = document.createElement('span');
     description.setAttribute('class', 'description');
-    description.appendChild(document.createTextNode(
-        processor.description));
+    description.appendChild(document.createTextNode(processor.description));
     div.appendChild(description);
 
     container.appendChild(div);
