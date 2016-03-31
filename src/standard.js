@@ -28,46 +28,61 @@ window.onload = function() {
 
     container.appendChild(div);
   }
+
+  document.getElementById('submit').style.display = 'none';
 };
 
-function field_id(name) {
+function make_field_id(name) {
   return 'field_' + name.split(' ').join('_');
 };
 
 function render_fields(fields, element) {
   for (let i = 0; i < fields.length; i++) {
     let field = fields[i];
-    let fieldId = field_id(field['name']);
+    let field_id = make_field_id(field['name']);
 
-    element.append(field['name'] + ':<br />');
+    element.appendChild(document.createTextNode(field['name'] + ':'));
+    element.appendChild(document.createElement('br'));
 
     switch (field['type']) {
       case null:
       case 'string':
-        element.append('<input id="'+fieldId+'" type="text" />');
+        let el_text = document.createElement('input');
+        el_text.setAttribute('id', field_id);
+        el_text.setAttribute('type', 'text');
+        element.appendChild(el_text);
         break;
 
       case 'bool':
-        element.append('<input id="'+fieldId+'" type="checkbox" />');
+        let el_check = document.createElement('input');
+        el_check.setAttribute('id', field_id);
+        el_check.setAttribute('type', 'checkbox');
+        element.appendChild(el_check);
         break;
 
       case 'enum':
-        if (!('enum_options' in field))
+        if (!('enum_options' in field)) {
           throw 'Field '+field['name']+' is enum but has no enum_options set.';
+        }
 
-        let enumOptions = '';
-        for (let j = 0; j < field['enum_options'].length; j++)
-          enumOptions += '<option>'+field['enum_options'][j]+'</option>';
+        let options = document.createElement('select');
+        options.setAttribute('id', field_id);
 
-        element.append('<select id="'+fieldId+'">'+enumOptions+'</select>');
+        for (let j = 0; j < field['enum_options'].length; j++) {
+          let option = document.createElement('option');
+          option.appendChild(document.createTextNode(
+                field['enum_options'][j]));
+          options.appendChild(option);
+        }
 
+        element.appendChild(options);
         break;
 
       default:
         throw 'Field '+field['name']+' has unrecognized type '+field['type'];
     }
 
-    element.append('<br />');
+    element.appendChild(document.createElement('br'));
   }
 };
 
@@ -76,15 +91,17 @@ function read_fields(fields) {
 
   for (let i = 0; i < fields.length; i++) {
     let field = fields[i];
-    let fieldId = field_id(field['name']);
+    let field_id = make_field_id(field['name']);
+
+    let el = document.getElementById(field_id);
 
     switch (field['type']) {
       case 'bool':
-        result[field['name']] = $('#' + fieldId).prop('checked');
+        result[field['name']] = el.checked;
         break;
 
       default:
-        result[field['name']] = $('#' + fieldId).val();
+        result[field['name']] = el.value;
         break;
     }
   }
@@ -93,25 +110,36 @@ function read_fields(fields) {
 };
 
 function select(element, processor) {
-  $('#processors').children('div.processor').each(function(i) {
-    $(this).toggleClass('processorSelected', (this === element));
-  });
+  // Update selection visually
+  let processors = document.getElementById('processors');
+  for (let i = 0; i < processors.children.length; i++) {
+    let el = processors.children[i];
+    let cls = 'processor';
 
-  let fields = $("#fields");
+    if (el === element) {
+      cls += ' selected';
+    }
 
-  fields.empty();
+    el.className = cls;
+  }
+
+  // Clear fields
+  let fields = document.getElementById('fields');
+  while (fields.firstChild) {
+    fields.removeChild(fields.firstChild);
+  }
+
   render_fields(processor.fields, fields);
 
-  $('#submit').off('click').click(function() {
+  let submit = document.getElementById('submit');
+
+  // Wire up the processor to run on submit click
+  submit.onclick = function() {
     let options = read_fields(processor.fields);
-    let input = $('#text');
-    let output = processor.process(options, input.val());
-    input.val(output['output']);
-  });
+    let input = document.getElementById('text');
+    let output = processor.process(options, input.value);
+    input.value = output.output;
+  };
 
-  $('#submit').show();
+  submit.style.display = 'inline-block';
 }
-
-$(function() {
-  $('#submit').hide();
-});

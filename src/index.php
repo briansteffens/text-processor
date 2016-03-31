@@ -20,7 +20,6 @@ foreach (scandir('scripts/') as $script) {
         <link rel="stylesheet" type="text/css" href="style.css"
             media="screen" />
 
-        <script src="jquery-1.10.1.min.js"></script>
         <script src="standard.js"></script>
 
         <?php echo $includes; ?>
