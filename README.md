@@ -38,55 +38,22 @@ vagrant up
 Now visit [http://localhost:8383/](http://localhost:8383) in a browser.
 
 
-Installation
-============
-There's no formal installation process yet, so your mileage may vary. Below is
-an example. It makes a number of assumptions, so most commands will need
-modifications to suit your system.
+# Docker
 
-Requirements include a web server (Apache/nginx), database server
-(MariaDB/MySQL), PHP, PHP-CLI, and Mysqli.
+Install Docker:
 
-Download:
-```
-git clone https://github.com/Tiltar/text-processor
-cd text-processor
+```bash
+sudo apt-get install docker
 ```
 
-Create a database (MariaDB/MySQL console):
-```
-create database text_processor;
+Build the docker image:
 
-grant select,insert,delete on text_processor.scripts to
-    'text_processor'@'localhost' identified by '<somepass>';
+```bash
+docker build -t text-processor .
 ```
 
-Create database tables:
-```
-mysql text_processor < schema.sql
-```
+Run the container:
 
-Copy configuration template to /etc:
+```bash
+docker run -p 80:80 -d text-processor apache2ctl -D FOREGROUND
 ```
-sudo cp etc/text-processor.conf /etc/text-processor.conf
-```
-
-Edit configuration file, changing any relevant settings:
-```
-nano /etc/text-processor.conf
-```
-
-Install scripts to database:
-```
-cd scripts
-php install_scripts.php
-cd ..
-```
-
-Install web interface (assuming httpd root is /var/www):
-```
-sudo ln -s src /var/www/text-processor
-```
-
-Assuming everything went right, the UI should be accessible through a URL like
-http://localhost/text-processor/.
