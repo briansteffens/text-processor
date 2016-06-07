@@ -1,16 +1,4 @@
 <!DOCTYPE html>
-<?php
-$includes = '';
-
-foreach (scandir('scripts/') as $script) {
-  if (substr($script, -3) === '.js') {
-    if ($includes !== '') {
-      $includes .= '        ';
-    }
-    $includes .= '<script src="scripts/'.$script.'"></script>'."\n";
-  }
-}
-?>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -22,12 +10,12 @@ foreach (scandir('scripts/') as $script) {
 
     <script src="standard.js"></script>
 
-    <?php echo $includes; ?>
+    {{ scripts }}
   </head>
   <body>
     <div id="header">
       <span class="title">text-processor</span>
-      <a href="https://github.com/Tiltar/text-processor/"
+      <a href="https://github.com/briansteffens/text-processor/"
           target="_blank">source code</a>
     </div>
 

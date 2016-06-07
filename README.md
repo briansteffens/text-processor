@@ -18,6 +18,7 @@ Clone the repository:
 ```bash
 git clone https://github.com/briansteffens/text-processor
 cd text-processor
+make
 ```
 
 
